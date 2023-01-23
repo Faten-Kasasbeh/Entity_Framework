@@ -54,14 +54,31 @@
             <br />
           <div> Search By Name<br />
             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click1" Text="Search" /></div> 
+            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click1" Text="Search" />
+                <br />
+                </div> 
+                <div> 
+                    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Add New User" />
                 </div>
-            <asp:GridView ID="grd" runat="server"  CssClass="table table-striped table-dark">
+                </div>
+            <asp:GridView ID="grd" runat="server"  CssClass="table table-striped table-dark" AutoGenerateColumns="False" >
                    <Columns>
+
+        <asp:BoundField  DataField="CustomerID" HeaderText="CustomerID" />
+         <asp:BoundField DataField="CustomerName" HeaderText="CustomerName" />
+         <asp:BoundField DataField="Age" HeaderText="Age" />
+         <asp:BoundField DataField="Phone" HeaderText="Phone" />
+          <asp:BoundField DataField="Email" HeaderText="Email" />
+        <asp:BoundField DataField="city" HeaderText="city" />
+
+
+            <asp:ImageField DataImageUrlField="Photo" HeaderText="Image" >
          
-            <asp:ImageField DataImageUrlField="Photo" HeaderText="Image">
                 <ControlStyle Height="150px" Width="150px" />
             </asp:ImageField>
+                       <asp:HyperLinkField DataNavigateUrlFields="CustomerID" DataNavigateUrlFormatString="delete.aspx?id={0}" HeaderText="Delete" Text="Delete" />
+                       <asp:HyperLinkField DataNavigateUrlFields="CustomerID" DataNavigateUrlFormatString="edit.aspx?id={0}" HeaderText="Edit" Text="Edit" />
+
         </Columns>
             </asp:GridView>
 <div style="display:flex;  flex-direction:column; justify-content:center; align-items:center;">

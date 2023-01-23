@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.DynamicData;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace EntityTasks
 {
@@ -27,8 +28,20 @@ namespace EntityTasks
           
             grd.DataSource = all;
             grd.DataBind();
+
             
-   
+             
+             //var x = (from y in ctx.Employees
+             //                where y.EmployeeId == z.EmployeeId
+             //                select y).FirstOrDefault();
+             //       if (x != null)
+             //       {
+             //           ctx.Employees.DeleteObject(x);
+             //           ctx.SaveChanges();
+             //       }
+                
+            
+
 
             var num = (from m in obj.Customers select m).Count();
             decimal avg= Convert.ToDecimal((from m in obj.Customers select m.Age).Average());
@@ -65,9 +78,9 @@ namespace EntityTasks
          
         }
 
-        protected void grd_SelectedIndexChanged(object sender, EventArgs e)
+        protected void Button3_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Home.aspx");
         }
     }
 }
